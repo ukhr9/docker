@@ -11,6 +11,7 @@ services:
       - /srv/apache:/var/www/html/
 
   postgresql:
+    image: postgres
     container_name: postgresql
     ports:
       - "3306:3306"
