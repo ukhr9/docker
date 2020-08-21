@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  www:
+    container_name: apache
+    image: httpd
+    ports:
+      - "8080:80"
+    volumes:
+      - /srv/apache:/var/www/html/
+
+  postgresql:
+    container_name: postgresql
+    ports:
+      - "3306:3306"
+    volumes:
+      - /srv/db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: MyDatabase
+      POSTGRES_USER: kevin
+      POSTGRES_PASSWORD: 12345
