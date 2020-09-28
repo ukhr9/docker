@@ -4,20 +4,11 @@ services:
 
   www:
     container_name: apache
-    image: httpd
-    ports:
-      - "8080:80"
-    volumes:
-      - /srv/apache:/var/www/html/
-
-  postgresql:
-    image: postgres
-    container_name: postgresql
+    build: .
+    network_mode: bridge
     ports:
       - "3306:3306"
-    volumes:
-      - /srv/db-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: MyDatabase
-      POSTGRES_USER: kevin
-      POSTGRES_PASSWORD: 12345
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_USER=root

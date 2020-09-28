@@ -11,12 +11,9 @@ RUN apt-get -qqy update && apt-get upgrade -y \
     vim \ 
     curl
 
-COPY files/sshd_config2222 /etc/ssh/sshd_config2222
-
-RUN mkdir -p /prueba/sftp && chmod 755 /prueba/sftp
-RUN useradd ftpuser -d /prueba/sftp && groupadd sftp2222 & adduser ftpuser sftp2222
+RUN /etc/init.d/mysql start
 
 EXPOSE 3306 2222
 
 
-CMD [ "mysqld" ]
+ENTRYPOINT [ "mysqld" ]
