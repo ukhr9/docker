@@ -7,4 +7,4 @@ USER root
 
 RUN cd test/
 
-RUN echo hola.sh
+RUN cat hola.sh
