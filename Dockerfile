@@ -5,15 +5,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
 
-RUN apt-get -qqy update && apt-get upgrade -y \
-    openssh-server \
-    mysql-server \
-    vim \ 
-    curl
+RUN cd test/
 
-RUN /etc/init.d/mysql start
-
-EXPOSE 3306 2222
-
-
-ENTRYPOINT [ "mysqld" ]
+RUN echo hola.sh
